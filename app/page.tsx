@@ -1,19 +1,27 @@
+import { DotBackground } from "@/components/grid";
 import { ModeToggle } from "@/components/modetoggle";
+import { GlobeDemo } from "@/components/useglobe";
 import Image from "next/image";
-
+import { signupVanish } from "@/components/signup-vanish";
+import { Macbook } from "@/components/macbook";
+import { VaultCard } from "@/components/card";
+import { Waitlist } from "@/components/waitlist";
 export default function Home() {
   return (
-    <>
-    <div className="flex justify-end">
-<ModeToggle/>
-</div>
+    <div>
+      <DotBackground>
+        <div>
+        <GlobeDemo/>
+        </div>
+</DotBackground>
+<DotBackground>
 <div>
-  <h1 className="text-4xl text-primary">Join our network!</h1>
-    <p className="text-lg text-secondary">Imagine run models on multiple inferences for free !
-    you dont understand right!? yes even i don't! 
-    </p>
-    <h1 className="text-4xl text-primary">We are LLM on a blockchain</h1>
+  <VaultCard/>
 </div>
-</>
+</DotBackground>
+<DotBackground>
+<Waitlist/>
+</DotBackground>
+</div>
   );
 }
