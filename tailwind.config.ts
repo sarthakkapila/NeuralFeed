@@ -25,6 +25,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
@@ -83,12 +86,24 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "keyframes": {
+          shimmer: {
+            from: {
+              "backgroundPosition": "0 0"
+            },
+            to: {
+              "backgroundPosition": "-200% 0"
+            }
+          }
+        }
       },
       animation: {
           scroll:
             "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "animate-shimmer": "shimmer 2s linear infinite",
+        shimmer: "shimmer 2s linear infinite"
       },
     },
     plugins: [addVariablesForColors],
