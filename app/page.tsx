@@ -6,9 +6,13 @@ import { signupVanish } from "@/components/signup-vanish";
 import { Macbook } from "@/components/macbook";
 import { VaultCard } from "@/components/card";
 import { Waitlist } from "@/components/waitlist";
+import { HoverBorderGradientDemo } from "@/components/hoverbutton";
 export default function Home() {
-  return (
+  return 
     <div>
+      {/* <div className="flex justify-end"> */}
+        {/* <HoverBorderGradientDemo/> */}
+      {/* </div> */}
       <DotBackground>
         <div>
         <GlobeDemo/>
@@ -23,5 +27,5 @@ export default function Home() {
 <Waitlist/>
 </DotBackground>
 </div>
-  );
+  ;
 }
