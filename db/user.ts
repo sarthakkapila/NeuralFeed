@@ -18,7 +18,7 @@ async function Signup(username: string, email: string, password: string, firstNa
 
 // Checks if user logged in or not
 async function Signin(username: string, password: string) {
-    const login = await prisma.user.findMany({
+    return await prisma.user.findUnique({
         where: {
         username,
         password
@@ -26,24 +26,7 @@ async function Signin(username: string, password: string) {
     });
 }
 
-// Gives tweets of a user along with the user
-async function getPosts(authorId: string) {
-    const posts = await prisma.user.findUnique({
-        where:{
-            id: authorId,
-        },
-        select:{
-            text: true,
-            img: true ?? '',
-            author: true,
-            createdAt: true,
-            id: true
-        }
-    }) 
-}
-
 export {
     Signup,
     Signin,
-    getPosts
 }
