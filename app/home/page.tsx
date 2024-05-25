@@ -1,86 +1,141 @@
 import React from "react";
-import { TracingBeam } from "../../components/tracing-beam";
 import Image from "next/image";
+import { GoHomeFill } from "react-icons/go";
+import { FaSearch } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import { FaBookmark } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
+import { CiCircleMore } from "react-icons/ci";
+import TradingViewWidget from "@/components/trading";
 
+interface sidebarItems {
+  text: string;
+  icon?: React.ReactNode;
+}
+const sidebarItems: sidebarItems[] = [
+  {
+    icon: <GoHomeFill />,
+    text: "Home",
+  },
+  {
+    icon: <FaSearch/>,
+    text: "Explore",
+  },
+  {
+    icon: <FaBell />,
+    text: "Notifications",
+  },
+  {
+    icon: <IoMail />,
+    text: "Messages",
+  },
+  {
+    icon: <FaBookmark />,
+    text: "Bookmarks",
+  },
+  {
+    icon: <MdVerified />,
+    text: "Premium",
+  },
+  {
+    icon: <FaUser />,
+    text: "Profile",
+  },
+  {
+    icon: <CiCircleMore />,
+    text: "More",
+  },
+];
 export default function TracingBeamDemo() {
   return (
-    <div className="grid grid-cols-12 gap-4">
-      <div className="col-span-3">
-        {/* Side buttons */}
-        Here will be all the side buttons
+    <div className="grid grid-cols-12 gap-4 overflow-hidden">
+      <div className="col-span-3 text-white">
+        <div className="flex flex-col gap-4 mt-10">
+        <ul className="mt-10">
+          {sidebarItems.map((item) => (
+            <li className="flex justify-start items-center gap-7 py-5 text-2xl hover:bg-opacity-30 hover:bg-white hover:text-black rounded-full px-20 ">
+              <span>{item.icon}</span>
+              <span>{item.text}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-5">
+          <button className="bg-white text-black rounded-full p-4 mx-20 text-lg w-[200px] hover:bg-opacity-30">
+            Post
+            </button>
+        </div>
+        </div>
       </div>
-      <div className="col-span-6">
-        {/* Tracing Beam */}
-        <TracingBeam className="col-span-8">
+      <div className="col-span-6 border border-cyan-950 overflow-y-auto h-full">
+      <div className="flex flex-col gap-4 mt-10">
+      <textarea
+        className="text-white w-full bg-transparent text-xl px-5 py-5 border-b border-slate-800"
+        placeholder="Whats Happening?"
+        rows={2}
+        style={{ resize: "none" }}/>
+      <div className="flex items-center justify-between w-full gap-2 py-2">
+      <button
+        className="text-xl rounded-full p-2 hover:bg-gray-600 cursor-pointer"
+      >
+      </button>
+      <button
+        className="bg-white text-black px-4 py-3 rounded-full hover:bg-opacity-30 w-[150px] mx-6"
+      >
+        Post
+      </button>
+</div>
+</div>
           <div className="max-w-2xl mx-auto antialiased relative">
-            {dummyContent.map((item, index) => (
+            {Content.map((item, index) => (
               <div key={`content-${index}`} className="mb-10">
                 <h2 className="bg-black text-white rounded-full text-sm w-fit mb-4">
-                  {item.badge}
+                  {item.text}
                 </h2>
                 <div className="text-sm  prose prose-sm dark:prose-invert">
-                  {item?.image && (
+                  {item?.img && (
                     <Image
-                      src={item.image}
+                      src={item.img}
                       alt="blog thumbnail"
                       height="1000"
                       width="1000"
                       className="rounded-lg mb-10 object-cover"
                     />
                   )}
-                  {item.description}
+                  {item.text}
+                  <br/>
+                  {item.createdAt}
                 </div>
               </div>
             ))}
           </div>
-        </TracingBeam>
       </div>
-      <div className="col-span-3">
-        {/* News API AI and all */}
-        News API AI and all lol
+      <div className="col-span-3 text-white overflow-hidden">
+        {/* <TradingViewWidget/> */}
       </div>
     </div>
   );
 }
 
 // Adding a DB route to get the data like UId that gets name, profle, bio, tweet <p> and image of post. 
-const dummyContent = [
+const Content = [
+  {
+    text: "loren ipsum ilum",
+    img: "",
+    author: "",
+    createdAt: "00:00:0000",
+  },
+
+
+
+
     {
-      title: "Lorem Ipsum Dolor Sit Amet",
-      description: (
-        <>
-          <p>
-            Sit duis est minim proident non nisi velit non consectetur. Esse
-            adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
-            Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
-            incididunt enim magna id est qui sunt fugiat. Laboris do duis pariatur
-            fugiat Lorem aute sit ullamco. Qui deserunt non reprehenderit dolore
-            nisi velit exercitation Lorem qui do enim culpa. Aliqua eiusmod in
-            occaecat reprehenderit laborum nostrud fugiat voluptate do Lorem culpa
-            officia sint labore. Tempor consectetur excepteur ut fugiat veniam
-            commodo et labore dolore commodo pariatur.
-          </p>
-          <p>
-            Dolor minim irure ut Lorem proident. Ipsum do pariatur est ad ad
-            veniam in commodo id reprehenderit adipisicing. Proident duis
-            exercitation ad quis ex cupidatat cupidatat occaecat adipisicing.
-          </p>
-          <p>
-            Tempor quis dolor veniam quis dolor. Sit reprehenderit eiusmod
-            reprehenderit deserunt amet laborum consequat adipisicing officia qui
-            irure id sint adipisicing. Adipisicing fugiat aliqua nulla nostrud.
-            Amet culpa officia aliquip deserunt veniam deserunt officia
-            adipisicing aliquip proident officia sunt.
-          </p>
-        </>
-      ),
-      badge: "React",
-      image:
+      img:
         "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: "Lorem Ipsum Dolor Sit Amet",
-      description: (
+      text: (
         <>
           <p>
             Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
@@ -98,13 +153,12 @@ const dummyContent = [
           </p>
         </>
       ),
-      badge: "Changelog",
-      image:
+      img:
         "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: "Lorem Ipsum Dolor Sit Amet",
-      description: (
+
+      text: (
         <>
           <p>
             Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
@@ -116,8 +170,7 @@ const dummyContent = [
           </p>
         </>
       ),
-      badge: "Launch Week",
-      image:
+      img:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];

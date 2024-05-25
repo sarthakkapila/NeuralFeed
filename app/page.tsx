@@ -1,6 +1,7 @@
+
 import { DotBackground } from "@/components/grid";
 import { GlobeDemo } from "@/components/useglobe";
-import { VaultCard } from "@/components/card";
+import { Cards } from "@/components/card";
 import { Waitlist } from "@/components/waitlist";
 import { HoverBorderGradientDemo } from "@/components/hoverbutton";
 import { Button } from "@/components/ui/button";
@@ -17,14 +18,10 @@ export default function Home() {
         </div>
       </div>
       <DotBackground>
-        <div >
           <GlobeDemo/>
-        </div>
       </DotBackground>
       <DotBackground>
-        <div>
-          <VaultCard/>
-        </div>
+        <Cards/>
       </DotBackground>
       <DotBackground>
         <Waitlist/>
