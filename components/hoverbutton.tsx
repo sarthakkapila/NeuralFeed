@@ -1,14 +1,20 @@
 "use client";
 import React from "react";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
-
+import { useRouter } from "next/router";
 export function HoverBorderGradientDemo() {
+// const router = useRouter();
+
+  // const handleClick = () => {
+  //   router.push('/signup');
+  // };
   return (
     <div className=" pr-8 flex justify-end text-center">
       <HoverBorderGradient
         containerClassName="rounded-full"
         as="button"
         className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+        // onClick={handleClick}
       >
         {/* <AceternityLogo /> */}
         <span>Sign Up</span>
