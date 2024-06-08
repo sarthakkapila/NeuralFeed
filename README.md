@@ -1,16 +1,4 @@
-🌟 Introducing ChirpUp: Where Conversations Take Flight! 🐦
-
-Ready to elevate your social media experience? Say hello to ChirpUp, the vibrant new platform where you can connect, share, and engage like never before!
-
-🚀 Why Choose ChirpUp?
-
-Express Yourself: Let your thoughts soar with our intuitive interface designed for seamless communication.
-Spark Conversations: Join dynamic discussions on trending topics or create your own buzz with personalized posts.
-Connect Globally: Make meaningful connections with users worldwide and broaden your social circle.
-Stay Updated: Keep your finger on the pulse of what matters most with real-time updates and notifications.
-Embrace Diversity: Celebrate diverse perspectives and embrace inclusivity in a welcoming community environment.
-🎉 Join the Flock Today!
-Download ChirpUp now and experience the excitement of sharing ideas, making friends, and exploring new horizons—all in 280 characters or less!
+# X-NET
 
 
 ## Getting Started
