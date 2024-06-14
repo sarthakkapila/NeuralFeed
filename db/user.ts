@@ -17,10 +17,10 @@ async function Signup(username: string, email: string, password: string, firstNa
 }
 
 // Checks if user logged in or not
-async function Signin(username: string, password: string) {
+async function Signin(email: string, password: string) {
     return await prisma.user.findUnique({
         where: {
-        username,
+        email,
         password
         },
     });
