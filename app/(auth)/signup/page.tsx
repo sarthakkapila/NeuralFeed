@@ -54,10 +54,10 @@ export default function SignupFormDemo() {
     <div className="p-40">
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black pt-20">
         <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-          Welcome to website
+        Welcome to NeuralFeed 🧠🧬
         </h2>
         <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-          Signup to your account
+          Signup it's free 😉
         </p>
 
         <form className="my-8" onSubmit={handleSubmit}>

@@ -23,30 +23,34 @@ const sidebarItems: sidebarItems[] = [
     icon: <FaSearch/>,
     text: "Explore",
   },
-  {
+
+ /* {
     icon: <FaBell />,
     text: "Notifications",
   },
-  {
+  */
+
+/*  {
     icon: <IoMail />,
     text: "Messages",
-  },
+  }, */
+
   {
     icon: <FaBookmark />,
     text: "Bookmarks",
   },
-  {
+
+ /* {
     icon: <MdVerified />,
     text: "Premium",
   },
+  */
+
   {
     icon: <FaUser />,
     text: "Profile",
   },
-  {
-    icon: <CiCircleMore />,
-    text: "More",
-  },
+
 ];
 export default function TracingBeamDemo() {
   return (
