@@ -2,40 +2,55 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// Gives tweets of a user along with the user
-async function getPostsofUser(authorId: string) {
+// Gives posts of a user along with the user
+export async function getPostsOfUser(authorId: String) {
     return await prisma.post.findMany({
         where: {
             authorId: authorId,
         },
-        select:{
+        select: {
             id: true,
             text: true,
-            img: true ?? '',
-            createdAt: true
+            img: true,
+            createdAt: true,
+            author: {
+                select: {
+                    id: true,
+                    username: true,
+                    email: true,
+                }
+            }
         }
     });
 }
 
-// Gets all the posts and as it is scrolled gets more
-async function getAllPosts(skip: number = 0, take: number) {
+
+export async function getAllPosts(skip: number, take: number) {
     return await prisma.post.findMany({
         skip: skip,
         take: take,
         orderBy: {
             createdAt: 'desc',
-            id: 'desc'
         },
-        select:{
+        select: {
             id: true,
             text: true,
-            img: true ?? '',
-            createdAt: true
+            img: true,
+            createdAt: true,
+            author: {
+                select: {
+                    id: true,
+                    username: true,
+                    email: true,
+                }
+            }
         }
     });
 }
 
-async function createPost(authorId: string, text: string, img: string = '') {
+
+
+export async function createPost(authorId: String, text: string, img: string = '') {
     return await prisma.post.create({
         data: {
             authorId: authorId,
@@ -45,15 +60,28 @@ async function createPost(authorId: string, text: string, img: string = '') {
     });
 }
 
-async function getpost(id: number) {
+export async function getPost(id: number) {
     return await prisma.post.findUnique({
         where: {
             id: id,
+        },
+        select: {
+            id: true,
+            text: true,
+            img: true,
+            createdAt: true,
+            author: {
+                select: {
+                    id: true,
+                    username: true,
+                    email: true,
+                }
+            }
         }
     });
 }
 
-async function updatePost(id: number, text: string, img: string = '') {
+export async function updatePost(id: number, text: string, img: string = '') {
     return await prisma.post.update({
         where: { id: id },
         data: {
@@ -63,8 +91,9 @@ async function updatePost(id: number, text: string, img: string = '') {
     });
 }
 
-async function deletePost(id: number) {
-    return prisma.post.delete({
+export async function deletePost(id: number) {
+    return await prisma.post.delete({
         where: { id: id },
     });
 }
+
