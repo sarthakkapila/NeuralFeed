@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { GoHomeFill } from "react-icons/go";
 import { FaSearch } from "react-icons/fa";
@@ -9,7 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { CiCircleMore } from "react-icons/ci";
 import TradingViewWidget from "@/components/trading";
-import {axios} from 'axios';
+import axios from "axios";
 
 interface sidebarItems {
   text: string;
@@ -54,6 +54,22 @@ const sidebarItems: sidebarItems[] = [
 
 ];
 export default function TracingBeamDemo() {
+  const [authorId, setAuthorId] = useState('');
+  const [text, setText] = useState('');
+  const [img, setImg] = useState('');
+  const handleCreatePost = async () => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/posts', {
+        authorId: authorId,
+        text: text,
+        img: img
+      });
+      console.log('Post created:', response.data);
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
+  };
+
   return (
     <div className="grid grid-cols-12 gap-4 overflow-hidden">
       <div className="col-span-3 text-white">
@@ -67,7 +83,9 @@ export default function TracingBeamDemo() {
           ))}
         </ul>
         <div className="mt-5">
-          <button className="bg-white text-black rounded-full p-4 mx-20 text-lg w-[200px] hover:bg-opacity-30">
+          <button className="bg-white text-black rounded-full p-4 mx-20 text-lg w-[200px] hover:bg-opacity-30"
+          onClick={handleCreatePost}>
+
             Post
             </button>
         </div>
@@ -122,7 +140,7 @@ export default function TracingBeamDemo() {
     </div>
   );
 }
-
+}
 
 /*
  
