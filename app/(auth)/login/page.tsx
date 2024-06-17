@@ -6,21 +6,24 @@ import { cn } from "@/utils/cn";
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
+import {useRouter} from 'next/navigation';
 
 export default function SignupFormDemo() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await axios.get('http://localhost:3001/api/auth', {
         params:{
-        email: email,
+        username: username,
         password: password,
         }
       });
-
+      router.push('home')
       console.log("Form submitted", response.data);
       toast.success("Login successful 🫡");
     } catch (error) {

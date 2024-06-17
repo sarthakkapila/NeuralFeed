@@ -6,6 +6,7 @@ import { cn } from "@/utils/cn";
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import axios from 'axios';
 import {useRouter} from 'next/navigation'
+import toast, { Toaster } from 'react-hot-toast';
 
 interface formData {
   firstName: string;
@@ -24,7 +25,7 @@ export default function SignupFormDemo() {
     password: ''
   });
   const router = useRouter(); 
-
+  
   // Message shown to user whether signup is successful or not
   const [message, setMessage] = useState('');
 
