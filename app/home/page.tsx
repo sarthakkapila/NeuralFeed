@@ -9,6 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { CiCircleMore } from "react-icons/ci";
 import TradingViewWidget from "@/components/trading";
+import {axios} from 'axios';
 
 interface sidebarItems {
   text: string;
@@ -122,7 +123,30 @@ export default function TracingBeamDemo() {
   );
 }
 
-// Adding a DB route to get the data like UId that gets name, profle, bio, tweet <p> and image of post. 
+
+/*
+ 
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  text      String
+  img       String
+  createdAt DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+}
+
+
+  */
+
+
+
+
+
+
+// Adding a DB route to get the data like UId that gets name, profle, bio, tweet <p> and image of post.
+//
+// 
 const Content = [
   {
     text: "loren ipsum ilum",
